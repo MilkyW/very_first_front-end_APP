@@ -3,6 +3,7 @@ html {
 }
 
 body {
+    margin: 0 auto;
     text-align: center;
     background: url(star.jpg);
 }
@@ -18,7 +19,9 @@ p {
 }
 
 #buttons div {
-    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 300px;
 }
 
 footer {

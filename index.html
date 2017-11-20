@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="StyleSheet.css" rel="stylesheet" />
 <script src="vue.js" type="text/javascript"></script>
 <link href="bootstrap.min.css" rel="stylesheet" />
@@ -11,50 +11,61 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-<html>
-    <head>
-        <title>Emoji</title>
-    </head>
-    <body>
-        <div class="alert alert-warning" role="alert">
-            <strong>Holy guacamole!</strong> Welcome to the world of emoji.
-        </div>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+    <title>Emoji</title>
+</head>
+<body>
+    <div class="alert alert-warning" role="alert">
+        <strong>Holy guacamole!</strong> Welcome to the world of emoji.
+    </div>
 
-        <div id="big-emoji"><p>{{ message }}</p></div>
-        <script>
-            var big_emoji = new Vue({
-                el: '#big-emoji',
-                data: {
-                    message: '_(:3 」∠)_'
+    <div id="big-emoji"><p>{{ message }}</p></div>
+    <script>
+        var big_emoji = new Vue({
+            el: '#big-emoji',
+            data: {
+                message: '_(:3 」∠)_'
+            }
+        })
+    </script>
+    <div id="buttons">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button id="happy" v-on:click="happyMessage" type="button" class="btn btn-success btn-lg">happy</button>
+        <button id="shock" v-on:click="shockMessage" type="button" class="btn btn-warning btn-lg">shock</button>
+        <button id="angry" v-on:click="angryMessage" type="button" class="btn btn-danger btn-lg">angry</button>
+    </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#happy',
+            methods: {
+                happyMessage: function () {
+                    big_emoji.message = "(ﾉ≧∀≦)ﾉ"
                 }
-            })
-        </script>
+            }
+        })
 
-        <div id="buttons" class="btn-group" role="group" aria-label="Basic example" style="margin:0 auto">
-            <button id="happy" v-on:click="happyMessage" type="button" class="btn btn-success btn-lg">happy</button>
-            <button id="shock" v-on:click="shockMessage" type="button" class="btn btn-warning btn-lg">shock</button>
-        </div>
-        <script>
-            var happy = new Vue({
-                           el: '#happy',
-                           methods: {
-                               happyMessage: function () {
-                                   big_emoji.message = "(ﾉ≧∀≦)ﾉ"
-                               }
-                           }
-                       })
-            
-            var shock = new Vue({
-                               el: '#shock',
-                               methods: {
-                                   shockMessage: function () {
-                                       big_emoji.message = "∑(ﾟ□ﾟ;)"
-                                   }
-                               }
-                           })
-        </script>
-        <footer>
-            &copy; 2017 吴幸融
-        </footer>
-    </body>
+        new Vue({
+            el: '#shock',
+            methods: {
+                shockMessage: function () {
+                    big_emoji.message = "∑(ﾟ□ﾟ;)"
+                }
+            }
+        })
+
+        new Vue({
+            el: '#angry',
+            methods: {
+                angryMessage: function () {
+                    big_emoji.message = "(╬▔皿▔)"
+                }
+            }
+        })
+    </script>
+    <footer>
+        &copy; 2017 吴幸融
+    </footer>
+</body>
 </html>
