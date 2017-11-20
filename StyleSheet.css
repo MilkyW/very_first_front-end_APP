@@ -1,0 +1,30 @@
+html {
+    font-family: sans-serif;
+}
+
+body {
+    text-align: center;
+    background: url(star.jpg);
+}
+
+a {
+    color: #fff;
+}
+
+p {
+    color: #ffe200;
+    font-size: 300px;
+    text-align: center;
+}
+
+#happy div {
+    text-align: center;
+}
+
+footer {
+    color: #fff;
+    text-align: left;
+    bottom: 10px;
+    margin-left: 10px;
+    clear: both;
+}

@@ -2,60 +2,61 @@
 <meta charset="utf-8">
 <link href="StyleSheet.css" rel="stylesheet" />
 <script src="vue.js" type="text/javascript"></script>
-<script src="fun.js" type="text/javascript"></script>
+<link href="bootstrap.min.css" rel="stylesheet" />
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="bootstrap-3.3.7-dist/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="bootstrap-3.3.7-dist/js/popper.min.js" type="text/javascript"></script>
 
 <html>
     <head>
         <title>Emoji</title>
     </head>
     <body>
-
-        <div><img src="pac-man-2724.jpg" alt="Background image"></div>
-
-        <header>
-            <h1>Emoji</h1>
-        </header>
+        <div class="alert alert-warning" role="alert">
+            <strong>Holy guacamole!</strong> Welcome to the world of emoji.
+        </div>
 
         <div id="big-emoji"><p>{{ message }}</p></div>
         <script>
             var big_emoji = new Vue({
                 el: '#big-emoji',
                 data: {
-                    message: ''
+                    message: '_(:3 」∠)_'
                 }
             })
         </script>
 
-        <div id="happy">
-            <p>{{ message }}</p>
-            <button v-on:click="happyMessage">happy</button>
-        </div>
-        <script>
-            var happy = new Vue({
-                el: '#happy',
-                methods: {
-                    happyMessage: function () {
-                        big_emoji.message = "(ﾉ≧∀≦)ﾉ"
+        <div id="buttons">
+            <div id="happy" style="float: left">
+                <p>{{ message }}</p>
+                <button v-on:click="happyMessage" type="button" class="btn btn-success btn-lg">happy</button>
+            </div>
+            <script>
+                var happy = new Vue({
+                    el: '#happy',
+                    methods: {
+                        happyMessage: function () {
+                            big_emoji.message = "(ﾉ≧∀≦)ﾉ"
+                        }
                     }
-                }
-            })
-        </script>
+                })
+            </script>
 
-        <div id="shock">
-            <p>{{ message }}</p>
-            <button v-on:click="shockMessage">shock</button>
-        </div>
-        <script>
-            var shock = new Vue({
-                el: '#shock',
-                methods: {
-                    shockMessage: function () {
-                        big_emoji.message = "∑(ﾟ□ﾟ;)"
+            <div id="shock" style="float: left">
+                <p>{{ message }}</p>
+                <button v-on:click="shockMessage" type="button" class="btn btn-warning btn-lg">shock</button>
+            </div>
+            <script>
+                var shock = new Vue({
+                    el: '#shock',
+                    methods: {
+                        shockMessage: function () {
+                            big_emoji.message = "∑(ﾟ□ﾟ;)"
+                        }
                     }
-                }
-            })
-        </script>
-
+                })
+            </script>
+        </div>
         <footer>
             &copy; 2017 吴幸融
         </footer>
