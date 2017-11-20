@@ -1,21 +1,63 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Hello, world!</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="StyleSheet.css" rel="stylesheet" />
+<script src="vue.js" type="text/javascript"></script>
+<script src="fun.js" type="text/javascript"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+<html>
+    <head>
+        <title>Emoji</title>
+    </head>
+    <body>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  </body>
+        <div><img src="pac-man-2724.jpg" alt="Background image"></div>
+
+        <header>
+            <h1>Emoji</h1>
+        </header>
+
+        <div id="big-emoji"><p>{{ message }}</p></div>
+        <script>
+            var big_emoji = new Vue({
+                el: '#big-emoji',
+                data: {
+                    message: ''
+                }
+            })
+        </script>
+
+        <div id="happy">
+            <p>{{ message }}</p>
+            <button v-on:click="happyMessage">happy</button>
+        </div>
+        <script>
+            var happy = new Vue({
+                el: '#happy',
+                methods: {
+                    happyMessage: function () {
+                        big_emoji.message = "(ﾉ≧∀≦)ﾉ"
+                    }
+                }
+            })
+        </script>
+
+        <div id="shock">
+            <p>{{ message }}</p>
+            <button v-on:click="shockMessage">shock</button>
+        </div>
+        <script>
+            var shock = new Vue({
+                el: '#shock',
+                methods: {
+                    shockMessage: function () {
+                        big_emoji.message = "∑(ﾟ□ﾟ;)"
+                    }
+                }
+            })
+        </script>
+
+        <footer>
+            &copy; 2017 吴幸融
+        </footer>
+    </body>
 </html>
